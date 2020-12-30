@@ -16,14 +16,16 @@ bot = commands.Bot(
 
 trustedUsers = []
 
+intervalMessages = ["You can grab your own MetcheBot source code from: https://github.com/deniexx/TwitchBotPY",
+                    "These messages can be customized."]
+
+# To add more messages to send add a comma and a on a a new line type your text in quotations
+
 
 async def intervalMessage(ws):
     for channel in CHANNELS:
-        await ws.send_privmsg(channel, "You can grab your own MetcheBot source code from: https://github.com/deniexx/TwitchBotPY")
-        await ws.send_privmsg(channel, "These messages can be customized")
-
-    await asyncio.sleep(300)
-    await intervalMessage(ws)
+        for message in intervalMessages:
+            await ws.send_privmsg(channel, message)
 
 
 @bot.event
