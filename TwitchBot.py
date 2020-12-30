@@ -47,7 +47,7 @@ def takeUsers():
 @bot.event
 async def event_ready():
     print("Bot is ready")
-    ws = bot.ws
+    ws = bot._ws
     for channel in CHANNELS:
         await ws.send_privmsg(channel, "/me is coming to save the day")
         # Message to send when the bot comes online
