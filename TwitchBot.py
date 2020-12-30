@@ -47,12 +47,12 @@ def takeUsers():
 @bot.event
 async def event_ready():
     print("Bot is ready")
-    ws = bot._ws
+    ws = bot.ws
     for channel in CHANNELS:
         await ws.send_privmsg(channel, "/me is coming to save the day")
         # Message to send when the bot comes online
 
-    trustedUsers = takeUsers()
+    trusted_users = takeUsers()
     await intervalmessage(ws)
 
 
@@ -136,5 +136,14 @@ async def getwinner(ctx):
         users = await bot.get_chatters(str(ctx.channel))
         await ctx.send(f"@{random.choice(users[1])} is the winner")
         # Gets a list of all members and chooses 1 on random
+
+
+@bot.command(name="help")
+async def sendhelp(ctx):
+    await ctx.send("Available commands: ")
+    await ctx.send("""!clear - To clear messages 
+    !ban/unban "user" "reason to ban" - ban/unban user
+    !trust/untrust "user" - trust/untrust a user (allow to send links)
+    !winner - choose a random veiwer to be the winner""")
 
 bot.run()
