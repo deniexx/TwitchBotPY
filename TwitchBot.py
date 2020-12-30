@@ -4,12 +4,12 @@ import asyncio
 import random
 import json
 
-CHANNELS = ["#deniexxx"]  # channels that the bot will connect [must be list or tuple]
-NICK = "metchebot"  # your bot channel username
+CHANNELS = ["#CHANNEL"]  # channels that the bot will connect [must be list or tuple]
+NICK = "NICK"  # your bot channel username
 
 bot = commands.Bot(
-    irc_token="oauth:o7tivn21xsuawgioyxajdcm8puve7u",  # your oauth code
-    client_id="a80ian18gjdpz41lgt1j2wctv8pf2u",  # your app id
+    irc_token="oauth:AUTH",  # your oauth code
+    client_id="CLIENT_ID",  # your app id
     nick=NICK,
     prefix="!",  # command prefix
     initial_channels=CHANNELS
